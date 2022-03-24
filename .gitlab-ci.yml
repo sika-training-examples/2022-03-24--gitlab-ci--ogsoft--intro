@@ -1,17 +1,20 @@
-foo:
-  script: echo 'Deploy!'
-  environment:
-    name: foo/$CI_COMMIT_REF_SLUG
-    url: https://$CI_COMMIT_REF_SLUG.dev.company.com
+# .gitlab-ci.yml
+stages:
+  - generate
+  - pipeline
 
-bar:
-  script: echo 'Deploy!'
-  environment:
-    name: bar/$CI_COMMIT_REF_SLUG
-    url: https://$CI_COMMIT_REF_SLUG.dev.company.com
+generate:
+  stage: generate
+  image: python:3.7-slim
+  script: python generate-gitlab-ci.py
+  artifacts:
+    paths:
+      - .gitlab-ci.generated.yml
 
-baz§:
-  script: echo 'Deploy!'
-  environment:
-    name: baz/$CI_COMMIT_REF_SLUG
-    url: https://$CI_COMMIT_REF_SLUG.dev.company.com
+pipeline:
+  stage: pipeline
+  trigger:
+    include:
+      - artifact: .gitlab-ci.generated.yml
+        job: generate
+    strategy: depend
