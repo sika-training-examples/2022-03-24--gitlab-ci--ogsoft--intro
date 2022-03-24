@@ -1,16 +1,17 @@
-# .gitlab-ci.yml
-pipeline_a:
-  trigger:
-    include: a/.gitlab-ci.yml
-    strategy: depend
-  only:
-    changes:
-      - a/**
+foo:
+  script: echo 'Deploy!'
+  environment:
+    name: foo/$CI_COMMIT_REF_SLUG
+    url: https://$CI_COMMIT_REF_SLUG.dev.company.com
 
-pipeline_b:
-  trigger:
-    include: b/.gitlab-ci.yml
-    strategy: depend
-  only:
-    changes:
-      - b/**
+bar:
+  script: echo 'Deploy!'
+  environment:
+    name: bar/$CI_COMMIT_REF_SLUG
+    url: https://$CI_COMMIT_REF_SLUG.dev.company.com
+
+baz§:
+  script: echo 'Deploy!'
+  environment:
+    name: baz/$CI_COMMIT_REF_SLUG
+    url: https://$CI_COMMIT_REF_SLUG.dev.company.com
