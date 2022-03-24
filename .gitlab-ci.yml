@@ -15,19 +15,19 @@ mac build:
 
 lint:
   stage: test
-  # needs: []
+  needs: []
   script: echo Done
 
 linux unit tests:
   stage: test
-  # needs:
-  #   - linux build
+  needs:
+    - linux build
   script: echo Done
 
 linux e2e tests:
   stage: test
-  # needs:
-  #   - linux build
+  needs:
+    - linux build
   script: sleep 10 && echo Done
 
 mac unit tests:
@@ -38,20 +38,20 @@ mac unit tests:
 
 mac e2e tests:
   stage: test
-  # needs:
-  #   - mac build
+  needs:
+    - mac build
   script: sleep 30 && echo Done
 
 release linux:
   stage: deploy
   script: "echo Done"
-  # needs:
-  #   - linux unit tests
-  #   - linux e2e tests
+  needs:
+    - linux unit tests
+    - linux e2e tests
 
 release mac:
   stage: deploy
   script: "echo Done"
-  # needs:
-  #   - mac unit tests
-  #   - mac e2e tests
+  needs:
+    - mac unit tests
+    - mac e2e tests
