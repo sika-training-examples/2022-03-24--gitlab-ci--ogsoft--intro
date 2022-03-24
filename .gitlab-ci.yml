@@ -1,12 +1,9 @@
-stages:
-  - test
-  - deploy
 
 test:
+  when: manual
   script: echo test ... && false
-  allow_failure: true
 
-job:
-  stage: deploy
-  script: echo hello
-  
+test2:
+  when: manual
+  script: echo test ... && false
+  allow_failure: false
