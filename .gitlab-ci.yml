@@ -8,6 +8,6 @@ variables:
 
 deploy:
   variables:
-    MY_LOCAL: yyyy
+    MY_GLOBAL: yyyy
   stage: deploy
   script: env | grep MY_
