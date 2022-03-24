@@ -3,6 +3,11 @@ stages:
   - deploy
 
 
+variables:
+  MY_GLOBAL: xxxx
+
 deploy:
+  variables:
+    MY_LOCAL: yyyy
   stage: deploy
   script: env | grep MY_
