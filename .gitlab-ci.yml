@@ -6,5 +6,7 @@ stages:
 variables:
   MY_IMAGE: $CI_REGISTRY_IMAGE/app:$CI_COMMIT_REF_SLUG-$CI_PIPELINE_ID-$CI_COMMIT_SHORT_SHA
   MY_IMAGE_PROX: proxy.foo.com/$MY_GROUP_VAR
+
+job:
   stage: deploy
   script: env | grep MY_
