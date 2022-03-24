@@ -5,4 +5,4 @@ stages:
 
 deploy:
   stage: deploy
-  script: echo $CI_PROJECT_PATH_SLUG-$CI_COMMIT_REF_SLUG.example.com
+  script: env | grep MY_
