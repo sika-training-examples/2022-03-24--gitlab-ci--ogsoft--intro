@@ -1,4 +1,8 @@
 job:
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+      - now
   script:
-    - echo $PASSWORD
-    - echo PASSWORD
+    - date >> now
+    - cat now
