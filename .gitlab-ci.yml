@@ -5,4 +5,4 @@ stages:
 
 deploy:
   stage: deploy
-  scritp: echo $CI_PROJECT_PATH_SLUG-$CI_CI_COMMIT_REF_SLUG.example.com
+  script: echo $CI_PROJECT_PATH_SLUG-$CI_CI_COMMIT_REF_SLUG.example.com
