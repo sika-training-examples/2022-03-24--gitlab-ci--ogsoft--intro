@@ -1,11 +1,8 @@
-Build A:
-  script: echo Cuild A ...
-  only:
-    changes:
-      - a/**
+stages:
+  - build
+  - deploy
 
-Build B:
-  script: echo Cuild B ...
-  only:
-    changes:
-      - b/**
+
+deploy:
+  stage: deploy
+  scritp: echo $CI_PROJECT_PATH_SLUG-$CI_CI_COMMIT_REF_SLUG.example.com
