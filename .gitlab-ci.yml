@@ -4,6 +4,7 @@ stages:
 
 deploy:
   stage: deploy
+  allow_failure: false
   when: manual
   script: echo test ... && sleep 10
 
