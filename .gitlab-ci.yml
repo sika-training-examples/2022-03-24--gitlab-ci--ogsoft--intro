@@ -1,9 +1,13 @@
+stages:
+  - deploy
+  - deploy_test
+
+deploy:
+  stage: deploy
+  when: manual
+  script: echo test ... && sleep 10
 
 test:
-  when: manual
-  script: echo test ... && false
-
-test2:
-  when: manual
-  script: echo test ... && false
-  allow_failure: false
+  stage: deploy_test
+  script: echo test ... 
+  
