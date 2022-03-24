@@ -2,4 +2,5 @@ job:
   script:
     - echo prep
     - echo test && false
+  after_script:
     - echo cleanup
